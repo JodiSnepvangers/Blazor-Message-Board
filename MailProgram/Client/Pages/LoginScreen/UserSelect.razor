@@ -1,0 +1,75 @@
+﻿@page "/login"
+
+@inject IUserService UserService
+@inject NavigationManager NavigationManager
+
+<PageTitle>User Login</PageTitle>
+<h3>User Login</h3>
+
+@if(UserList.Count > 0)
+{
+    <MatSelectItem @bind-Value="SelectedUser" Items="@UserList">
+        <ItemTemplate>
+            <span>@context?.Name</span>
+        </ItemTemplate>
+    </MatSelectItem>
+} else {
+    @if(Loading)
+    {
+        <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Large" />
+    } else
+    {
+        <p>No users in database. Please add a new one!</p>
+    }
+}
+
+<br />
+<br />
+    
+<MatButton Raised=true Disabled=@(SelectedUser == null) @onclick="ConfirmLogin">Login</MatButton>
+<MatButton Raised=true Disabled=@(Loading) @onclick="AddNewUser">Add New User</MatButton>
+
+
+@code {
+    private List<User> UserList { get; set; } = new();
+
+    private User? SelectedUser { get; set; }
+
+    private Boolean Loading { get; set; } = true;
+
+    /**
+     * 
+     * Override Methods
+     * 
+     */
+
+    protected async override Task OnInitializedAsync()
+    {
+        List<User>? result = await UserService.GetUserList();
+        if(result != null && result.Count > 0)
+        {
+            UserList = result;
+            SelectedUser = UserList[0];
+        }
+        Loading = false;
+
+    }
+
+    /**
+     * 
+     * Private Methods
+     * 
+     */
+
+    private void ConfirmLogin()
+    {
+        UserService.LoggedInUser = SelectedUser;
+        NavigationManager.NavigateTo("");
+    }
+
+    private void AddNewUser()
+    {
+        NavigationManager.NavigateTo("new-user");
+    }
+
+}

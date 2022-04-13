@@ -1,0 +1,86 @@
+﻿@page "/message-board"
+@inject IMessageService MessageService
+@inject IUserService UserService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Message Board</PageTitle>
+<h3>Message Board</h3>
+
+
+<div role="menu">
+    <MatButton Raised="true" class="@(isMessageSelected()? "visible" : "invisible")" @onclick="View">View</MatButton>
+    <MatButton Raised="true" class="@(isMessageSelectedByOwner()? "visible" : "invisible")" @onclick="Delete">Delete</MatButton>
+    <MatButton Raised="true" class="@(isMessageSelectedByOwner()? "visible" : "invisible")" @onclick="Edit">Edit</MatButton>
+</div>
+
+<MessageList OnMessageSelected="OnMessageSelected"></MessageList>
+
+<MatButton Raised="true" @onclick="CreateNewMessage" Disabled=@(UserService.LoggedInUser == null)>Create new comment</MatButton>
+@if (UserService.LoggedInUser == null)
+{
+    <p>You must be logged in to post a message!</p>
+}
+
+@code {
+    Message? SelectedMessage;
+
+    /**
+     * 
+     * Private Methods
+     * 
+     */
+
+    private void OnMessageSelected(Message message)
+    {
+        SelectedMessage = message;
+    }
+
+    private Boolean isMessageSelected()
+    {
+        return SelectedMessage != null;
+    }
+    private Boolean isMessageSelectedByOwner()
+    {
+        if(SelectedMessage == null || SelectedMessage.User == null || UserService.LoggedInUser == null)
+        {
+            return false;
+        }
+        return isMessageSelected() && SelectedMessage.User.UserId == UserService.LoggedInUser.UserId;
+    }
+
+    /**
+     * 
+     * Private Button Methods
+     * 
+     */
+
+    private async Task Delete()
+    {
+        if(SelectedMessage != null)
+        {
+            await MessageService.DeleteMessage(SelectedMessage.MessageId);
+            SelectedMessage = null;
+        }
+    }
+
+    private void Edit()
+    {
+        if(SelectedMessage != null)
+        {
+            NavigationManager.NavigateTo($"message-editor/{SelectedMessage.MessageId}");
+        }
+    }
+
+    private void View()
+    {
+        if(SelectedMessage != null)
+        {
+            NavigationManager.NavigateTo($"message-viewer/{SelectedMessage.MessageId}");
+        }
+    }
+
+    private void CreateNewMessage()
+    {
+       NavigationManager.NavigateTo("message-editor");
+    }
+}

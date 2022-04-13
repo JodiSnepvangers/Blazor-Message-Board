@@ -1,0 +1,12 @@
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\bin\Debug\net6.0\MailProgram.Shared.deps.json
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\bin\Debug\net6.0\MailProgram.Shared.dll
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\bin\Debug\net6.0\ref\MailProgram.Shared.dll
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\bin\Debug\net6.0\MailProgram.Shared.pdb
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\MailProgram.Shared.csproj.AssemblyReference.cache
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\MailProgram.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\MailProgram.Shared.AssemblyInfoInputs.cache
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\MailProgram.Shared.AssemblyInfo.cs
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\MailProgram.Shared.csproj.CoreCompileInputs.cache
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\MailProgram.Shared.dll
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\ref\MailProgram.Shared.dll
+C:\Users\jodis\source\repos\MailProgram\MailProgram\Shared\obj\Debug\net6.0\MailProgram.Shared.pdb

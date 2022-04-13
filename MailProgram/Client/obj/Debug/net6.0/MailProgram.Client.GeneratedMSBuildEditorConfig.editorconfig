@@ -1,0 +1,75 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = MailProgram.Client
+build_property.RootNamespace = MailProgram.Client
+build_property.ProjectDir = C:\Users\jodis\source\repos\MailProgram\MailProgram\Client\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\jodis\source\repos\MailProgram\MailProgram\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/LoginScreen/NewUser.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5TY3JlZW5cTmV3VXNlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/LoginScreen/UserSelect.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5TY3JlZW5cVXNlclNlbGVjdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/MessageBoard/MessageBoard.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZUJvYXJkXE1lc3NhZ2VCb2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/MessageBoard/MessageEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZUJvYXJkXE1lc3NhZ2VFZGl0b3IucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/MessageBoard/MessageList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZUJvYXJkXE1lc3NhZ2VMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Pages/MessageBoard/MessageViewer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZUJvYXJkXE1lc3NhZ2VWaWV3ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-xs66zi61kz
+
+[C:/Users/jodis/source/repos/MailProgram/MailProgram/Client/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-59602r4d52

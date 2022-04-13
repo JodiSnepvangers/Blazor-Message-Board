@@ -1,0 +1,51 @@
+﻿@page "/message-viewer/{messageid:int}"
+
+@inject IMessageService MessageService
+@inject NavigationManager NavigationManager
+
+@if (Loading)
+{
+    <PageTitle>Please wait...</PageTitle>
+    <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Large" />
+} else
+{
+    <h3>@Message.Title</h3>
+    <p>@Message.Text</p>
+    <p>User: @Message.User.Name on @Message.Created.ToShortDateString()</p>
+    
+}
+
+@code {
+    [Parameter]
+    public int? MessageId { get; set; }
+
+    private Message? Message;
+
+    private Boolean Loading = true;
+
+    /**
+     * 
+     * Override Methods
+     * 
+     */
+
+    protected async override Task OnParametersSetAsync()
+    {
+        MessageId = MessageId ?? -1;
+
+        if(MessageId > -1)
+        {
+            Message? result = await MessageService.GetSingleMessage((int)MessageId);
+            if(result != null)
+            {
+                Message = result;
+            } else
+            {
+                NavigationManager.NavigateTo("Error");
+                return;
+            }
+        }
+        Loading = false;
+    }
+
+}

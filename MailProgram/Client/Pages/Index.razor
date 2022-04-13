@@ -1,0 +1,15 @@
+﻿@page "/"
+@inject IUserService UserService
+
+<PageTitle>Home Page</PageTitle>
+
+
+@if(UserService.LoggedInUser == null)
+{
+    <h2>Hello Visitor!</h2>
+    <p>Welcome to my message board. Please use the user login screen to select a account!</p>
+} else
+{
+    <h2>Welcome @(UserService.LoggedInUser.Name)</h2>
+    <p>Thank you for logging in. See the message board for any new messages!</p>
+}

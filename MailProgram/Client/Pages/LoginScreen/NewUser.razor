@@ -1,0 +1,46 @@
+﻿@page "/new-user"
+@inject IUserService UserService;
+@inject NavigationManager NavigationManager
+
+<PageTitle>Add New User</PageTitle>
+<h3>New User</h3>
+
+@if(Loading)
+{
+    <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Large" />
+} else
+{
+    <MatTextField @bind-Value="@CreatedUser.Name" Label="Username"></MatTextField>
+    <br />
+    <br />
+    <MatButton Raised=true @onclick="GoBack">Go Back</MatButton>
+    <MatButton Raised=true @onclick="Confirm">Add New User</MatButton>
+}
+
+
+@code {
+    private Boolean Loading { get; set; } = false;
+    private User CreatedUser { get; set; } = new User
+    {
+        Name = "Username"
+    };
+
+    /**
+     * 
+     * Private Methods
+     * 
+     */
+
+    private async Task Confirm()
+    {
+        Loading = true;
+        await UserService.AddUser(CreatedUser);
+        GoBack();
+    }
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("login");
+    }
+
+}

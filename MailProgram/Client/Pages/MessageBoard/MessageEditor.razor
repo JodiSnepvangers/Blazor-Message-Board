@@ -1,0 +1,109 @@
+﻿@page "/message-editor"
+@page "/message-editor/{messageid:int}"
+
+@inject IMessageService MessageService
+@inject IUserService UserService
+@inject NavigationManager NavigationManager
+
+
+@if (Loading)
+{
+    <PageTitle>Please wait...</PageTitle>
+    <MatProgressCircle Indeterminate="true" Size="MatProgressCircleSize.Large" />
+} else
+{
+    
+    @if (MessageId < 0)
+    {
+        <PageTitle>New Message</PageTitle>
+    } else
+    {
+        <PageTitle>Editing: @Message.Title</PageTitle>
+    }
+
+    <h3>Message Editor</h3>
+
+    <p>
+        <MatTextField @bind-Value="@Message.Title" Label="Title"></MatTextField>
+    </p>
+    <p>
+        <MatTextField @bind-Value="@Message.Text" Label="Text" TextArea="true" FullWidth="true"></MatTextField>
+    </p>
+
+    <MatButton Raised="true" @onclick="GoBack">Go Back</MatButton>
+    <MatButton Raised="true" @onclick="PostMessage">Post Message</MatButton>
+}
+
+@code {
+    [Parameter]
+    public int? MessageId { get; set; }
+
+    private Boolean Loading { get; set; } = true;
+    private Boolean Error { get; set; } = false;
+    private String ErrorMessage { get; set; } = String.Empty;
+
+    private Message Message { get; set; } = new Message
+        {
+            Title = "Title",
+            Text = "Enter your message here",
+            Created = DateTime.Now
+        };
+
+    /**
+     * 
+     * Override Methods
+     * 
+     */
+
+    protected async override Task OnParametersSetAsync()
+    {
+        MessageId = MessageId ?? -1;
+        Message.User = UserService.LoggedInUser;
+
+        if(UserService.LoggedInUser == null)
+        {
+            NavigationManager.NavigateTo("Error");
+            return;  
+        }
+
+        if(MessageId > -1)
+        {
+            Message? result = await MessageService.GetSingleMessage((int)MessageId);
+            if(result != null)
+            {
+                Message = result;
+            } else
+            {
+                NavigationManager.NavigateTo("Error");
+                return;
+            }
+        }
+        Loading = false;
+    }
+
+    /**
+     * 
+     * Private Button Methods
+     * 
+     */
+
+    private void GoBack()
+    {
+        NavigationManager.NavigateTo("message-board");
+    }
+
+    private async Task PostMessage()
+    {
+        Loading = true;
+
+        if(MessageId > -1)
+        {
+            await MessageService.UpdateMessage(Message);
+        } else
+        {
+            
+            await MessageService.PostMessage(Message);
+        }
+        NavigationManager.NavigateTo("message-board");
+    }
+}

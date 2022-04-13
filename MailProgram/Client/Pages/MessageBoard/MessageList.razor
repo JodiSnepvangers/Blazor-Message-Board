@@ -1,0 +1,50 @@
+﻿@inject IMessageService MessageService
+
+<MatTable Items="@MessageService.Messages" AllowSelection="true" SelectionChanged="SelectionChangedEvent">
+    <MatTableHeader>
+        <th>Username</th>
+        <th>Title</th>
+        <th>Date</th>
+    </MatTableHeader>
+    <MatTableRow>
+        <td>@context.User?.Name</td>
+        <td>@context.Title</td>
+        <td>@context.Created.ToShortDateString()</td>
+    </MatTableRow>
+</MatTable>
+
+@code {
+    [Parameter]
+    public EventCallback<Message> OnMessageSelected {get; set;}
+
+    /**
+     * 
+     * Override Methods
+     * 
+     */
+
+    protected async override Task OnInitializedAsync()
+    {
+        await MessageService.getMessages();
+    }
+
+    /**
+     * 
+     * Private Methods
+     * 
+     */
+
+    private async void SelectionChangedEvent(object row)
+    {
+        if(row != null && row is Message message)
+        {
+            await EventCall(message);
+        }
+    }
+
+    private async Task EventCall(Message message)
+    {
+        await OnMessageSelected.InvokeAsync(message);
+    }
+    
+}

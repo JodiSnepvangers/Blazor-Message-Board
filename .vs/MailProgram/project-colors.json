@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d945d92c-9cc5-44c8-984c-784332cd78c3": {
+      "ProjectGuid": "d945d92c-9cc5-44c8-984c-784332cd78c3",
+      "DisplayName": "MailProgram.Server",
+      "ColorIndex": 0
+    },
+    "66c0e386-6ffe-420a-8ef7-1a162dcb3d34": {
+      "ProjectGuid": "66c0e386-6ffe-420a-8ef7-1a162dcb3d34",
+      "DisplayName": "MailProgram.Client",
+      "ColorIndex": 1
+    },
+    "9e479ccc-c60e-4c56-89f5-fbba162f7060": {
+      "ProjectGuid": "9e479ccc-c60e-4c56-89f5-fbba162f7060",
+      "DisplayName": "MailProgram.Shared",
+      "ColorIndex": 2
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 3
+}
